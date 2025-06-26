@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Hasil Nilai</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #f4f4f4; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
+    th { background: #1e90ff; color: white; }
+    h1 { color: #1e90ff; }
+  </style>
+</head>
+<body>
+  <h1>📊 Hasil Pengguna</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>Nilai</th>
+        <th>Waktu</th>
+      </tr>
+    </thead>
+    <tbody id="hasil"></tbody>
+  </table>
+
+  <script>
+    const riwayat = JSON.parse(localStorage.getItem("riwayat_nilai") || "[]");
+    const tbody = document.getElementById("hasil");
+
+    riwayat.forEach((item, index) => {
+      tbody.innerHTML += `
+        <tr>
+          <td>${index + 1}</td>
+          <td>${item.nama}</td>
+          <td>${item.skor}</td>
+          <td>${item.waktu}</td>
+        </tr>
+      `;
+    });
+  </script>
+</body>
+</html>

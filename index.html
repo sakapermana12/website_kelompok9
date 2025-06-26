@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Belajar Bangun Datar</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f8ff;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(135deg, #dbeafe, #fce7f3);
+      padding: 40px 20px;
+      text-align: center;
+      color: #1e293b;
+      font-family: 'Segoe UI', sans-serif;
+      animation: fadeInDown 1s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-shadow: 0 1px 2px rgba(255,255,255,0.7);
+      border-bottom: 2px solid #f0f0f0;
+    }
+    header h1 {
+    font-size: 2.7em;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #4f46e5, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+  }
+
+  header p {
+    font-size: 1.1em;
+    color: #475569;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    section {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #1e90ff;
+    }
+    img {
+      max-width: 150px;
+      margin: 10px 0;
+    }
+    input[type="text"], input[type="number"] {
+      padding: 6px;
+      margin: 4px 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      background: #1e90ff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #006fd0;
+    }
+    .result {
+      font-weight: bold;
+      color: green;
+    }
+  
+    .lingkaran {
+      background: #FFDCDC;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 40px auto;
+      max-width: 800px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: 0.3s ease;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    section.lingkaran:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .judul-lingkaran {
+      font-family: 'Kanit', sans-serif;
+      font-size: 2.2em;
+      background: linear-gradient(to right, #4f46e5, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+    }
+
+    .judul-lingkaran::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #ec4899;
+      border-radius: 4px;
+      margin-top: 8px;
+    }
+
+    img {
+      max-width: 150px;
+      height: auto;
+      display: block;
+      margin: 20px 0;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); } 
+    }
+    .segitiga {
+      background: #ECFAE5; 
+      border-radius: 12px;
+      padding: 20px;
+      margin: 40px auto;
+      max-width: 800px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: 0.3s ease;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    section.segitiga:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .judul-segitiga {
+      font-family: 'Kanit', sans-serif;
+      font-size: 2.2em;
+      background: linear-gradient(to right, #16a34a, #4ade80);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    .judul-segitiga::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #4ade80;
+      border-radius: 4px;
+      margin-top: 8px;
+    }
+
+    img {
+      max-width: 150px;
+      height: auto;
+      display: block;
+      margin: 20px 0;
+    }
+
+    p {
+      font-size: 1em;
+      color: #333;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .persegi {
+      background: #E8F9FF;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 40px auto;
+      max-width: 800px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: 0.3s ease;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    section.persegi:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .judul-persegi {
+      font-family: 'Kanit', sans-serif;
+      font-size: 2.2em;
+      background: linear-gradient(to right, #f59e0b, #d97706);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    .judul-persegi::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #fbbf24;
+      border-radius: 4px;
+      margin-top: 8px;
+    }
+
+    img {
+      max-width: 150px;
+      height: auto;
+      display: block;
+      margin: 20px 0;
+    }
+
+    p {
+      font-size: 1em;
+      color: #333;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .persegipanjang {
+      background: #FFFBDE;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 40px auto;
+      max-width: 800px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: 0.3s ease;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    section.persegipanjang:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .judul-persegipanjang {
+      font-family: 'Kanit', sans-serif;
+      font-size: 2.2em;
+      background: linear-gradient(to right, #3b82f6, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    .judul-persegipanjang::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #60a5fa;
+      border-radius: 4px;
+      margin-top: 8px;
+    }
+
+    img {
+      max-width: 150px;
+      height: auto;
+      display: block;
+      margin: 20px 0;
+    }
+
+    p {
+      font-size: 1em;
+      color: #333;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .latihansoal {
+      background: #DDDDDD; 
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+  <h1>📐 Belajar Bangun Datar </h1>
+  <p>Materi • Latihan Soal • Penilaian Otomatis</p>
+  </header>
+  <main>
+    <section class="lingkaran">
+      <h2 class="judul-lingkaran">◯ Lingkaran</h2>
+      <img src="data:image/jpeg;base64,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"alt="lingkaran">
+      <p><strong>Lingkaran, dalam terminologi matematika, memiliki definisi yang jelas dan spesifik. Menurut ahli geometri, lingkaran adalah sekumpulan titik-titik yang terletak pada jarak yang sama dari sebuah titik tetap yang disebut pusat. Jarak antara pusat dan setiap titik pada lingkaran dikenal sebagai jari-jari.</p>
+      <div style="background: #fff7ed; color: #78350f; padding: 12px 16px; border-left: 5px solid #facc15; border-radius: 6px; font-weight: bold;"> 📐 Rumus Luas Lingkaran: L = π × r² </div>
+      <span style="
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 1em;
+  ">
+    ℹ️ Keterangan 
+  </span>
+      <p><strong>L = Luas</p>
+      <p><strong>π = 22/7 atau 3,14</p>
+      <p><strong>r = Jari jari lingkaran</p>
+      <p style="
+     background-color: #fef3c7; 
+     color: #92400e; 
+     padding: 8px 12px; 
+     border-left: 4px solid #f59e0b; 
+     border-radius: 6px;
+     font-weight: bold;
+     display: inline-block;
+  ">
+    ✏️ Contoh:
+  </p>
+      <p><strong> r = 7 cm → L = 3.14 × 49 = 153.86 cm²</p>
+      <div style="background: #fff7ed; color: #78350f; padding: 12px 16px; border-left: 5px solid #facc15; border-radius: 6px; font-weight: bold;"> 📐 Rumus Keliling Lingkaran: K = 2 x π x r = 2 π r </div>
+      <span style="
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 1em;
+  ">
+    ℹ️ Keterangan 
+  </span>      
+      <p><strong>K = Keliling</p>
+      <p><strong>π = 22/7 atau 3,14</p>
+      <p><strong>r = Jari jari lingkaran</p>
+      <p style="
+     background-color: #fef3c7; 
+     color: #92400e; 
+     padding: 8px 12px; 
+     border-left: 4px solid #f59e0b; 
+     border-radius: 6px;
+     font-weight: bold;
+     display: inline-block;
+  ">
+    ✏️ Contoh:
+  </p>
+      <p><strong>Sebuah koin memiliki jari-jari 5,5 cm. Berapakah keliling lingkaran tersebut?</p>
+      <p><strong>Penyelesaian:</strong> Keliling = 2 x 3,14 x 5,5 = 34,5 cm</p>
+      <div style="background: #fff7ed; color: #78350f; padding: 12px 16px; border-left: 5px solid #facc15; border-radius: 6px; font-weight: bold;"> 📐 Rumus jari jari yang diketahui diameternya: r = d : 2 </div>
+      <span style="
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 1em;
+  ">
+    ℹ️ Keterangan 
+  </span>
+      <p><strong>r = Jari jari lingkaran</p>
+      <p><strong>d = Diameter lingkaran</p>
+      <p style="
+     background-color: #fef3c7; 
+     color: #92400e; 
+     padding: 8px 12px; 
+     border-left: 4px solid #f59e0b; 
+     border-radius: 6px;
+     font-weight: bold;
+     display: inline-block;
+  ">
+    ✏️ Contoh:
+  </p>
+      <p><strong>Jika ada sebuah lingkaran  berdiameter 42 cm, berapakah jari – jari lingkaran tersebut?</p>
+      <p><strong>Penyelesaian:</strong> r = d : 2</p>
+      <p><strong>r = 42 : 2</p>
+      <p><strong>r = 21</p>
+      <p><strong> Jadi, jari jari lingkaran tersebut adalah 21 cm</p>
+      <div style="background: #fff7ed; color: #78350f; padding: 12px 16px; border-left: 5px solid #facc15; border-radius: 6px; font-weight: bold;"> 📐 Rumus jari jari yang diketahui kelilingnya: r = K : 2 x π </div>
+      <span style="
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 1em;
+  ">
+    ℹ️ Keterangan 
+  </span>  
+      <p><strong>r = Jari jari lingkaran</p>
+      <p><strong>K = Keliling lingkaran</p>
+      <p><strong>π = 22/7 atau 3,14</p>
+      <p style="
+     background-color: #fef3c7; 
+     color: #92400e; 
+     padding: 8px 12px; 
+     border-left: 4px solid #f59e0b; 
+     border-radius: 6px;
+     font-weight: bold;
+     display: inline-block;
+  ">
+    ✏️ Contoh:
+  </p>
+      <p><strong>Sebuah lingkaran kelilingnya 88 cm. Hitunglah berapa jari – jari lingkaran tersebut!</p>
+      <p><strong>Penyelesaian:</strong> r = k : (2 x π)</p>
+      <p><strong>r = 88 : (2 x 22/7)</p>
+      <p><strong>r = 88 : 44/7</p>
+      <p><strong>r = 14 cm</p>
+      <p><strong>Jadi, jari jari lingkaran tersebut adalah 14 cm</p>
+      <div style="background: #fff7ed; color: #78350f; padding: 12px 16px; border-left: 5px solid #facc15; border-radius: 6px; font-weight: bold;"> 📐 Rumus jari jari yang diketahui luasnya: r = √L : π </div>
+      <span style="
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 1em;
+  ">
+    ℹ️ Keterangan 
+  </span>
+      <p><strong>L = Luas</p>
+      <p><strong>r = Jari jari lingkaran</p>
+      <p><strong>π = 22/7 atau 3,14</p>
+      <p style="
+     background-color: #fef3c7; 
+     color: #92400e; 
+     padding: 8px 12px; 
+     border-left: 4px solid #f59e0b; 
+     border-radius: 6px;
+     font-weight: bold;
+     display: inline-block;
+  ">
+    ✏️ Contoh:
+  </p>
+      <p><strong>Diketahui sebuah lingkaran luasnya 1386 cm². Hitunglah jari – jari lingkaran tersebut?</p>
+      <p><strong>Penyelesaian:</strong> r = √L : π</p>
+      <p><strong>r = √1386 : 22/7</p>
+      <p><strong>r = √441</p>
+      <p><strong>r = 21 cm</p>
+      <p><strong>Jadi, jari jari lingkaran tersebut adalah 21 cm</p>
+      <div style="background: #fff7ed; color: #78350f; padding: 12px 16px; border-left: 5px solid #facc15; border-radius: 6px; font-weight: bold;"> 📐 Rumus diameter lingkaran jika diketahui kelilingnya: d = k : π </div>
+      <span style="
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 1em;
+  ">
+    ℹ️ Keterangan 
+  </span>
+      <p><strong>d = diameter</p>
+      <p><strong>π = 22/7 atau 3,14</p>
+      <p><strong>k = keliling lingkaran</p>
+      <p style="
+     background-color: #fef3c7; 
+     color: #92400e; 
+     padding: 8px 12px; 
+     border-left: 4px solid #f59e0b; 
+     border-radius: 6px;
+     font-weight: bold;
+     display: inline-block;
+  ">
+    ✏️ Contoh:
+  </p>  
+  <p><strong>Diketahui, sebuah lingkaran kelilingnya 308 cm. Tentukanlah, berapa diameter lingkaran tersebut!</p>
+      <p><strong>Penyelesaian:</strong> d = k : π</p>
+      <p><strong>d = 308 : 22/7</p>
+      <p><strong>d = 98</p>
+      <p><strong>Jadi, diameter lingkaran tersebut adalah 98 cm.</p>
+      <div style="background: #fff7ed; color: #78350f; padding: 12px 16px; border-left: 5px solid #facc15; border-radius: 6px; font-weight: bold;"> 📐 Rumus diameter lingkaran jika diketahui jari jarinya: d = 2 x r </div>
+      <span style="
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 1em;
+  ">
+    ℹ️ Keterangan 
+  </span>
+      <p><strong>d = diameter</p>
+      <p><strong>r = jari jari lingkaran</p>
+      <p style="
+     background-color: #fef3c7; 
+     color: #92400e; 
+     padding: 8px 12px; 
+     border-left: 4px solid #f59e0b; 
+     border-radius: 6px;
+     font-weight: bold;
+     display: inline-block;
+  ">
+    ✏️ Contoh:
+  </p>
+      <p><strong>Sebuah tutup toples berbentuk lingkaran dengan jari-jari 8 cm. Berapakah diameter tutup toples tersebut?</p>
+      <p><strong>Penyelesaian:</strong> d = 2 x r</p>
+      <p><strong> d = 2 x 8</p>
+      <p><strong>d = 16 cm</p>
+      <p><strong>Jadi, diameter tutup toples tersebut adalah 16 cm.</p>
+      <div style="background: #fff7ed; color: #78350f; padding: 12px 16px; border-left: 5px solid #facc15; border-radius: 6px; font-weight: bold;"> 📐 Rumus diameter lingkaran jika diketahui luas lingkaran: </div>
+      <p><strong>Langkah 1:</strong> L = π x r²</p>
+      <p><strong>r² = L : π</p>
+      <p><strong>r = √L : π</p>
+      <p><strong>Langkah 2:</strong> d = 2 x r</p>
+      <span style="
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 1em;
+  ">
+    ℹ️ Keterangan 
+  </span>
+      <p><strong>L = luas lingkaran</p>
+      <p><strong>r = jari jari lingkaran</p>
+      <p><strong>π = 22/7 atau 3,14</p>
+      <p style="
+     background-color: #fef3c7; 
+     color: #92400e; 
+     padding: 8px 12px; 
+     border-left: 4px solid #f59e0b; 
+     border-radius: 6px;
+     font-weight: bold;
+     display: inline-block;
+  ">
+    ✏️ Contoh:
+  </p>      
+      <p><strong>Diketahui, sebuah lingkaran luasnya 154 cm² . Tentukanlah diameter lingkaran tersebut!</p>
+      <p><strong>Penyelesaian:</p>
+      <p><strong>Langkah pertama, tentukan jari jarinya terlebih dahulu:</p>
+      <p><strong>L = π x r²</p>
+      <p><strong>r²= L : π</p>
+      <p><strong>r²= 154 : 22/7</p>
+      <p><strong>r²= 49</p>
+      <p><strong>r = √49</p>
+      <p><strong>r = 7 cm</p>
+      <p><strong>Langkah kedua, hitung diameter lingkaran:</p>
+      <p><strong>d = 2 x r</p>
+      <p><strong>d = 2 x 7</p>
+      <p><strong>d = 14 cm</p>
+      <p><strong>Jadi, diameter lingkaran adalah 14 cm.</p>
+    </section>
+
+    <section class="segitiga">
+      <h2 class="judul-segitiga">△ Segitiga</h2>
+      <img src="data:image/png;base64,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" alt="Segitiga">
+      <p><strong>Segitiga merupakan sebuah bangun datar yang dibatasi oleh tiga buah garis. Segitiga terbentuk dari tiga sisi yang berupa garis lurus dan memiliki tiga sudut.</p>
+      <div style="background: #fff7ed; color: #78350f; padding: 12px 16px; border-left: 5px solid #facc15; border-radius: 6px; font-weight: bold;"> 📐 Rumus Luas Segitiga: L = ½ × a × t </div>
+      <span style="
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 1em;
+  ">
+    ℹ️ Keterangan 
+  </span>
+      <p><strong>L = luas</p>
+      <p><strong>a = alas</p>
+      <p><strong>t = tinggi</p>
+      <p style="
+     background-color: #fef3c7; 
+     color: #92400e; 
+     padding: 8px 12px; 
+     border-left: 4px solid #f59e0b; 
+     border-radius: 6px;
+     font-weight: bold;
+     display: inline-block;
+  ">
+    ✏️ Contoh:
+  </p>
+      <p><strong>Sebuah gambar segitiga mempunyai panjang alas 20 cm dan tinggi sebesar 10 cm, maka hitunglah Luas Segitiga!</p>
+      <p><strong>Penyelesaian:</p>
+      <p><strong>Luas = ½ x a x t</p>
+      <p><strong>L = ½ x 20 x 10</p>
+      <p><strong>L = ½ x 200 = 100 cm²</p>
+      <p><strong>Jadi luas segitiga tersebut adalah 100cm²</p>
+      <div style="background: #fff7ed; color: #78350f; padding: 12px 16px; border-left: 5px solid #facc15; border-radius: 6px; font-weight: bold;"> 📐 Rumus Keliling Segitiga: K = s + s + s </div>
+      <span style="
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 1em;
+  ">
+    ℹ️ Keterangan 
+  </span>      
+      <p><strong>K = keliling</p>
+      <p><strong>s = sisi</p>
+      <p style="
+     background-color: #fef3c7; 
+     color: #92400e; 
+     padding: 8px 12px; 
+     border-left: 4px solid #f59e0b; 
+     border-radius: 6px;
+     font-weight: bold;
+     display: inline-block;
+  ">
+    ✏️ Contoh:
+  </p>    
+      <p><strong>Sebuah gambar segitiga mempunyai panjang alas 20 cm dan tinggi sebesar 10 cm, maka hitunglah kelilingnya!</p>
+      <p><strong>Penyelesaian:</p>
+      <p><strong>K = s + s + s</p>
+      <p><strong>K = 20 + 20 + 20</p>
+      <p><strong>K = 60 cm</p>
+      <p><strong>Jadi, keliling segitiga tersebut adalah 60 cm.</p>
+    </section>
+
+    <section class="persegi">
+      <h2 class="judul-persegi">⬛ Persegi</h2>
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOYAAADbCAMAAABOUB36AAAAeFBMVEX///8AAAAiIiL8/Pzx8fFbW1vc3Nz4+Pjk5ORfX1+WlpZzc3Obm5vh4eE8PDw0NDRISEhUVFRCQkKQkJDr6+vMzMx5eXkvLy+EhIQmJibDw8Onp6dNTU0dHR26urptbW0XFxcODg6Hh4evr69lZWW/v7+lpaXT09M+BKV/AAAEW0lEQVR4nO3de4+qOBgGcF6LFFHkIqh4Q3SOfv9vuC04yWYzs7OWPOWc7PPLXJw/aPtQWjCx0yAgIiIiIiIiIiIiIiIi+pGaugFeqDCcugk+bLqsmroNQfCsD3WMO98qzETusOL/czNKMcojbAAdTPGn6cdnLufyKrJBteRD5o2kmLLfkMs2UIlIDSldxyLPhT2JE/enjal1aX4CqOAopXpIFqqJc+ayN63ZmtYAClfKFh+J/Jp6dPYx1VYyjSg9FdnlZWcHxvS9qU3ME6T0lQxm8W8QM9Br0NjcSRunUWRvnSNimlM0dmz3vbkxMy3ibF9e5e7kpN3LV8P3qKC5zNYze99EjM06OfYPWPXmMab4w6qKNvWoWWxth87pCHkjob545VLMXA53uY0qwoycKFaeJkLHSlqp7+Z6c6307+nwMVWw+ljMHSwaKXLJ2oWbvVZeH06qpivL9duy9VV2O2ny7G328LNEfmOGzVIb4Zu0/rAX7U1pF+Z5PfXcm7OlS31KmZgX57FpYo6+675liPluheaA+h5W98ix1iGm48EuwtnS5Sav/vH7TdPE9C7x/aZ+uphe3zYwJhBjYjAmEGNiMCYQY2IwJhBjYjAmEGNiMCYQY2IwJhBjYjAmEGNiMCYQY2IwJhBjYjAmEGNiMCYQY2IwJhBjYjAmEGNiMCYQY2IwJoz6f8S0q/Fin9VVcdq0wMXqX9rPF5kUC3+fj46vchWRhbcKrWGBvMjTW41VURRdU0DWT35HqTRKt3KIIEtwv5XtvVZnZp76cmnlcfc3VKqyLLtz6bc3g9dFi/k3AF+Ju75Cv2MzuCSrQm4rf72p0jhq2srvTGvvl4nfG0qgwl07YumxU5VKTRDTPB74XTA/TW9O9EzLmACMicSYEIyJxJgQjInEmBCMicSYEIyJxJgQjInEmBCMicSYEIyJxJgQjInEmBCMicSYEIyJxJgQjInEmBCMicSYEIyJxJgQjInEmBCM+cOBn19O/piYQVhp7fwpeR8xo4MRhf1Hv91jJnJ/iusF7yNmPqwDOdrXJqbjKpTfPmYhzbbNXutdqmaduFjNZbmV3XHlZP5a2DiMbcyKgkLm/UqbxNYQnsRZJ53roU3Vx1P1MbmAdoAppDAzyFke9g8VR2lq9y17U7yX1UU+4veP7A0bEOttf7aOkH2L7EW7zWUxbq/jlR2b7suu+lgbkfYxt8MHsOSnGK6b7Yh9DM3JX8klOjtOX6++M1fUzfzRb5Hr3JZvFZKnUX1137lumD20Nt8jCgiCWuyuacGv29G5Jf+iH5vBUoqRp3D0eDrI530FMQeZmEpHmfNN79PoppmY/YSL2TitkK7MO5/rRL9hLtrYRtSQ9cdzOwHNigui7LdEIgfTl0kDeZOkw8o8d/vY9vIHqpRC2+X6npd3+/Ycbm073APu5F3ZO5Qi53b63e3BVBin4x7G/gi+9v8lIiIiIiIiIiIiIiIiIiIiIiIiX/4CrfNF0obpmHoAAAAASUVORK5CYII=" alt="Persegi">
+      <p><strong>Persegi adalah bangun datar dua dimensi yang dibentuk oleh empat buah rusuk (α)yang sama panjang dan memiliki empat buah sudut yang kesemuanya adalah sudut siku-siku.</p>
+     <div style="background: #fff7ed; color: #78350f; padding: 12px 16px; border-left: 5px solid #facc15; border-radius: 6px; font-weight: bold;"> 📐 Rumus Luas Persegi: L = s × s </div>
+       <span style="
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 1em;
+  ">
+    ℹ️ Keterangan 
+  </span>
+      <p><strong>L = luas</p>
+      <p><strong>s = sisi</p>
+      <p style="
+     background-color: #fef3c7; 
+     color: #92400e; 
+     padding: 8px 12px; 
+     border-left: 4px solid #f59e0b; 
+     border-radius: 6px;
+     font-weight: bold;
+     display: inline-block;
+  ">
+    ✏️ Contoh:
+  </p>
+      <p><strong>Diketahui bahwa suatu persegi memiliki sisi 6 cm. Hitunglah luas dari persegi tersebut!</p>
+      <p><strong>Penyelesaian:</p>
+      <p><strong>L = s x s</p>
+      <p><strong>L = 6 x 6</p>
+      <p><strong>L = 36 cm²</p>
+      <p><strong>Jadi luas dari persegi tersebut adalah 36 cm²</p>
+      <div style="background: #fff7ed; color: #78350f; padding: 12px 16px; border-left: 5px solid #facc15; border-radius: 6px; font-weight: bold;"> 📐 Rumus Keliling Persegi: K = s + s + s + s</div>
+      <p style="
+     background-color: #fef3c7; 
+     color: #92400e; 
+     padding: 8px 12px; 
+     border-left: 4px solid #f59e0b; 
+     border-radius: 6px;
+     font-weight: bold;
+     display: inline-block;
+  ">
+    ✏️ Contoh:
+  </p>
+      <p><strong>Diketahui bahwa suatu persegi memiliki sisi 10 cm. Hitunglah keliling dari persegi tersebut!</p>
+      <p><strong>Penyelesaian:</p>
+      <p><strong>K = s + s + s + s</p>
+      <p><strong>K = 10 + 10 + 10 + 10</p>
+      <p><strong>K = 40 cm</p>
+      <p><strong>Jadi keliling persegi tersebut adalah 40 cm.</p>
+    </section>
+
+    <section class="persegipanjang">
+      <h2 class="judul-persegipanjang">▭ Persegi Panjang</h2>
+      <img src="data:image/png;base64,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" alt="Persegi Panjang">
+      <p><strong>Persegi panjang adalah bangun datar dua dimensi yang memiliki dua pasang rusuk/sisi yang sejajar dan sama panjang, serta memiliki empat sudut berbentuk siku-siku.</p>
+      <div style="background: #fff7ed; color: #78350f; padding: 12px 16px; border-left: 5px solid #facc15; border-radius: 6px; font-weight: bold;"> 📐 Rumus Luas Persegi Panjang: L = p × l </div>
+      <span style="
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 1em;
+  ">
+    ℹ️ Keterangan 
+  </span>
+      <p><strong>L = luas</p>
+      <p><strong>p = panjang</p>
+      <p><strong>l = lebar</p>
+     <p style="
+     background-color: #fef3c7; 
+     color: #92400e; 
+     padding: 8px 12px; 
+     border-left: 4px solid #f59e0b; 
+     border-radius: 6px;
+     font-weight: bold;
+     display: inline-block;
+  ">
+    ✏️ Contoh:
+  </p>
+      <p><strong>Ibu membeli sebuah handphone baru berbentuk persegi panjang. Handphone tersebut memiliki panjang dan lebar, yaitu 10 cm dan 6 cm. Hitunglah luas dari handphone berbentuk persegi panjang tersebut!</p>
+      <p><strong>Penyelesaian:</p>
+      <p><strong>L = p x l</p>
+      <p><strong>L = 10 X 6</p>
+      <p><strong>L = 60 cm²</p>
+      <p><strong>Jadi luas dari handphone tersebut adalah 60 cm²</p>
+      <div style="background: #fff7ed; color: #78350f; padding: 12px 16px; border-left: 5px solid #facc15; border-radius: 6px; font-weight: bold;"> 📐 Rumus Keliling Persegi Panjang: K = 2 × (p x l)</div>
+     <p style="
+     background-color: #fef3c7; 
+     color: #92400e; 
+     padding: 8px 12px; 
+     border-left: 4px solid #f59e0b; 
+     border-radius: 6px;
+     font-weight: bold;
+     display: inline-block;
+  ">
+    ✏️ Contoh:
+  </p>
+      <p><strong> Lapangan futsal memiliki panjang dan lebar, yaitu 25 m dan 15 m. Hitunglah keliling dari lapangan futsal tersebut!</p>
+      <p><strong>Penyelesaian:</p>
+      <p><strong>K = 2 x (p + l)</p>
+      <p><strong>K = 2 x (25 + 15</p>
+      <p><strong>K = 2 x 40</p>
+      <p><strong>K = 80 m</p>
+      <p><strong>Jadi keliling lapangan futsal tersebut adalah 80m.</p>
+    </section>
+
+    <section class="latihansoal">
+      <h2>📝 Latihan Soal</h2>
+      <form onsubmit="hitungNilai(); return false;">
+        <label>Nama:<br><input type="text" id="nama" required></label><br><br>
+        <div id="soal"></div>
+        <button type="submit">Kirim Jawaban</button>
+      </form>
+      <div class="result" id="hasil"></div>
+    </section>
+  </main>
+
+  <script>
+  const soalData = [
+    { pertanyaan: "1. Taman depan rumah Toni berbentuk lingkaran memiliki jari-jari 14 cm. Hitunglah Luas taman tersebut! Dengan menggunakan π = 22/7.", jawaban: 616 },
+    { pertanyaan: "2. Diketahui sebuah lingkaran memiliki keliling 62,8 cm. Hitunglah berapa jari-jari lingkaran tersebut! Dengan menggunakan π = 3,14", jawaban: 10 },
+    { pertanyaan: "3. Sebuah jam berbentuk lingkaran memiliki jari-jari 12 cm. Berapakah diameter jam tersebut?", jawaban: 24 },
+    { pertanyaan: "4. Anita memiliki sebuah nampan berbentuk lingkaran dengan luas 50,24 cm². Berapakah keliling nampan tersebut?", jawaban: 25.12 },
+    { pertanyaan: "5. Segitiga sama kaki memiliki dua sisi masing-masing 9 cm dan sisi alas 6 cm. Berapakah keliling segitiga itu?", jawaban: 24 },
+    { pertanyaan: "6. Seorang murid membuat topi ulang tahun berbentuk segitiga. Jika panjang alasnya 20 cm dan tingginya 12 cm. Berapakah luas kertas yang digunakan?", jawaban: 120 },
+    { pertanyaan: "7. George memiliki buku berbentuk persegi memiliki sisi sebesar 5 cm. Hitunglah luas dan keliling buku tersebut?", jawaban: [25, 20] },
+    { pertanyaan: "8. Di dalam sebuah kamar terdapat kaca berbentuk persegi yang memiliki luas 49 cm². Berapakah sisi dari kaca tersebut?", jawaban: 7 },
+    { pertanyaan: "9. Ayah memiliki taplak meja berbentuk persegi panjang dengan ukuran panjang 25 cm dan lebar 20 cm. Berapakah luas taplak meja tersebut?", jawaban: 500 },
+    { pertanyaan: "10. Sebuah kolam renang berbentuk persegi panjang memiliki panjang 30 m dan lebar 15 m. Berapakah keliling kolam renang tersebut?", jawaban: 90 }
+    ];
+
+    let soalContainer = document.getElementById("soal");
+    soalData.forEach((s, i) => {
+      soalContainer.innerHTML += `<p>${s.pertanyaan}<br><input type="number" id="q${i}" required></p>`;
+    });
+
+    function hitungNilai() {
+      const nama = document.getElementById("nama").value;
+      let skor = 0;
+      let salah = [];
+
+      soalData.forEach((s, i) => {
+        const input = document.getElementById("q" + i).value;
+        const jawaban = parseFloat(input);
+
+         if (!isNaN(jawaban) && Math.abs(jawaban - s.jawaban) <= 1) {skor += 10;
+        } else {
+         salah.push(i + 1); // Nomor soal
+        }
+      });
+
+      const waktu = new Date().toLocaleString();
+      let riwayat = JSON.parse(localStorage.getItem("riwayat_nilai") || "[]");
+      riwayat.push({ nama, skor, waktu });
+      localStorage.setItem("riwayat_nilai", JSON.stringify(riwayat));
+
+      let hasil = `✅ ${nama}, nilai Anda: <stong>${skor}</strong> (${waktu})`;
+      if (salah.length > 0) {
+        hasil += `<br> ❌ Anda salah pada nomor: <strong>${salah.join(", ")}</strong>`;
+      }
+
+      document.getElementById("hasil").innerHTML = hasil;
+      document.querySelector("form").reset();
+    }
+  </script>
+</body>
+</html>
